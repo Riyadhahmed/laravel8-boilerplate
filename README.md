@@ -1,4 +1,4 @@
-# Laravel 8 Boilerplate 
+# Laravel 8 Boilerplate Multi Auth, Passport, Datatables, Simple and User Friendly
 
 
 ## Features
@@ -32,8 +32,6 @@
     
 ### Troubleshootings
     
-    All Models are in App/Models folder
-    
     1. Change Db port in config/database.php file or change as yours.
     2. Try composer composer dump-autoload if need
     3. php artisan config:cache if need
@@ -65,13 +63,13 @@
     7. Bootstrap 4
     8. Architect Admin Template
         
-Screenshot : 
+Screenshot :    
 
-![alt text](./screenshot/Home.png)
-![alt text](./screenshot/Dashboard.png)
-![alt text](./screenshot/Users.png)
-![alt text](./screenshot/Blogs.png)
-![alt text](./screenshot/Permissions.png)
+![alt text](./screenshot/Home.png)   
+![alt text](./screenshot/Dashboard.png)   
+![alt text](./screenshot/Users.png)   
+![alt text](./screenshot/Blogs.png)   
+![alt text](./screenshot/Permissions.png)   
 
 
  Find me on  Linkedin  : [My Linkedin profile  link](https://www.linkedin.com/in/monjur-morshed-riyadh-6aaba465/)  \
