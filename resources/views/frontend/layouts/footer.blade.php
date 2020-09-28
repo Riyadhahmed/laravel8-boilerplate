@@ -6,28 +6,9 @@
 </div>
 <!-- SlimScroll -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/toastr.js') }}"></script>
 
 <script>
-    $.fn.modal.Constructor.prototype.enforceFocus = function () {
-    };
-
     setTimeout(function () {
         $('.alert').fadeOut('slow');
     }, 5000); // <-- time in milliseconds
-</script>
-<script>
-    function notify_view(type, message) {
-        $.notify({
-            message: message
-        }, {
-            type: type,
-            allow_dismiss: true,
-            offset: {x: '30', y: '65'},
-            spacing: 10,
-            z_index: 1031,
-            delay: 200,
-            animate: {enter: 'animated fadeInDown', exit: 'animated fadeOutUp'}
-        });
-    }
 </script>
