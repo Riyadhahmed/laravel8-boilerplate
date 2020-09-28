@@ -1,12 +1,11 @@
-# Laravel 7 Boilerplate 
+# Laravel 8 Boilerplate 
 
 
 ## Features
 
-    1. Laravel 7 Framework
+    1. Laravel 8 Framework
     2. Laravel-Permission by spatie/laravel-permission
     3. Laravel Backup by spatie/laravel-backup
-    4. Barcode
     4. Yajra Datatable by Yajra
     5. Laravel Debugbar
     6. Laravel Passport Authentication
@@ -18,8 +17,8 @@
 
 ### Requirements
 
-    1. PHP version upto 7.2    
-    2. Laravel version  7  
+    1. PHP version upto 7.3    
+    2. Laravel version  8  
 
 ### Installation
 
@@ -28,21 +27,17 @@
     3. Update .env file by adding database information like DB_HOST.  
     4. Go to project root folder.Open git bash or terminal and run  composer install       
     5. Run php artisan key:generate in the terminal    
-    6. Run php artisan migrate  // Alternate import db.sql from db folder
-    
-### Seeder Class
-    1. php artisan db:seed   to seed all seeder  
-      
+    6. import db.sql from db folder
+         
     
 ### Troubleshootings
     
     All Models are in App/Models folder
     
-    1. Add 'model' => App\Models\User::class, in config/auth.php providers
-    2. Change Db port in config/database.php file or change as yours.
-    3. Try composer composer dump-autoload if need
-    4. php artisan config:cache if need
-    5. php artisan clear-compiled if need    
+    1. Change Db port in config/database.php file or change as yours.
+    2. Try composer composer dump-autoload if need
+    3. php artisan config:cache if need
+    4. php artisan clear-compiled if need    
     
 ### Note*
     
@@ -61,15 +56,14 @@
          
 ## Credit
 
-    1. Laravel 7 Framework
+    1. Laravel 8 Framework
     2. Laravel-Permission by spatie/laravel-permission
     3. Laravel Backup by spatie/laravel-backup
     4. Yajra Datatable by Yajra
-    5. Barcode by Milon
-    6. Laravel Debugbar
-    7. Laravel Passport Authentication
-    8. Bootstrap 4
-    9. Architect Admin Template
+    5. Laravel Debugbar
+    6. Laravel Passport Authentication
+    7. Bootstrap 4
+    8. Architect Admin Template
         
 Screenshot : 
 
