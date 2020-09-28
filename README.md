@@ -67,10 +67,11 @@
         
 Screenshot : 
 
-![alt text](./screenshot/dashboard.png)
-![alt text](./screenshot/permission.png)
-![alt text](./screenshot/roles.png)
-![alt text](./screenshot/backup.png)
+![alt text](./screenshot/Home.png)
+![alt text](./screenshot/Dashboard.png)
+![alt text](./screenshot/Users.png)
+![alt text](./screenshot/Blogs.png)
+![alt text](./screenshot/Permissions.png)
 
 
  Find me on  Linkedin  : [My Linkedin profile  link](https://www.linkedin.com/in/monjur-morshed-riyadh-6aaba465/)  \
