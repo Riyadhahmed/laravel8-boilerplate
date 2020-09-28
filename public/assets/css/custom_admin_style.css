@@ -1,0 +1,76 @@
+table td, th {
+    font-family: "SolaimanLipi";
+}
+
+label {
+    font-family: "SolaimanLipi";
+}
+
+.has-error, .error {
+    color: #e66464;
+    font-size: 11px;
+    font-family: verdana;
+
+}
+
+.mm-active {
+
+}
+
+.app-header {
+    height: 50px;
+}
+
+.app-sidebar .app-sidebar__inner {
+    padding: 1px 1rem .5rem
+}
+
+.fixed-sidebar .app-main .app-main__outer {
+    padding-left: 235px;
+}
+
+.closed-sidebar.fixed-sidebar .app-main__outer {
+    padding-left: 65px;
+}
+
+.app-page-title {
+    padding: 10px;
+    margin: -25px 0px 20px;
+}
+
+.modal-dialog {
+    max-width: 100%;
+    margin: 1.75rem auto;
+}
+
+.app-page-title .page-title-icon {
+    font-size: 1.8rem;
+    padding: .1rem;
+    margin: 0 15px 0 0;
+    width: 45px;
+    height: 45px;
+}
+
+@media only screen and (max-width: 600px) {
+    .app-header .app-header__content.header-mobile-open {
+        visibility: visible;
+        opacity: 1;
+        top: 55px;
+    }
+
+    .dropdown-menu {
+        position: fixed !important;
+        z-index: 50;
+        left: 5% !important;
+        top: 37% !important;
+        width: 90% !important;
+        transform: translateY(-50%) !important;
+        min-width: 10px !important;
+        border-radius: 20px;
+    }
+
+    .app-page-title {
+        padding: 10px;
+        margin: -15px 0px 15px 0px;
+    }
+}
