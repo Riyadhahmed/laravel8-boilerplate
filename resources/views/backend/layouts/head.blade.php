@@ -26,4 +26,7 @@
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
 
+<script>
+    var CSRF_TOKEN = "{{ csrf_token() }}";
+</script>
 

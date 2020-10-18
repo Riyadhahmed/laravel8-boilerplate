@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', ' All Settings')
+@section('title', 'Settings')
 @section('content')
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <style>
         @media screen and (min-width: 768px) {
             #myModal .modal-dialog {
@@ -69,49 +68,19 @@
     </script>
     <script type="text/javascript">
 
-        function reload_table() {
-            table.ajax.reload(null, false); //reload datatable ajax
-        }
-
-
-        $("#manage_all").on("click", ".edit", function () {
-
-            $("#modal_data").empty();
-            $('.modal-title').text('Edit Setting'); // Set Title to Bootstrap modal title
-
-            var id = $(this).attr('id');
-
-            $.ajax({
-                url: 'settings/' + id + '/edit',
-                type: 'get',
-                success: function (data) {
-                    $("#modal_data").html(data.html);
-                    $('#myModal').modal('show'); // show bootstrap modal
-                },
-                error: function (result) {
-                    $("#modal_data").html("Sorry Cannot Load Data");
-                }
+        $(document).ready(function () {
+            // View Form
+            $("#manage_all").on("click", ".view", function () {
+                var id = $(this).attr('id');
+                ajax_submit_view('settings', id)
             });
-        });
 
-        $("#manage_all").on("click", ".view", function () {
-
-            $("#modal_data").empty();
-            $('.modal-title').text('View Setting'); // Set Title to Bootstrap modal title
-
-            var id = $(this).attr('id');
-
-            $.ajax({
-                url: 'settings/' + id,
-                type: 'get',
-                success: function (data) {
-                    $("#modal_data").html(data.html);
-                    $('#myModal').modal('show'); // show bootstrap modal
-                },
-                error: function (result) {
-                    $("#modal_data").html("Sorry Cannot Load Data");
-                }
+            // Edit Form
+            $("#manage_all").on("click", ".edit", function () {
+                var id = $(this).attr('id');
+                ajax_submit_edit('settings', id)
             });
+
         });
 
     </script>

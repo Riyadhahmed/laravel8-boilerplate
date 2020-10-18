@@ -8,33 +8,32 @@
             <span id="error_name" class="has-error"></span>
         </div>
         <div class="clearfix"></div>
-        <label for="se_permission">&nbsp; Assign Permissions : </label>
-        <div class="clearfix"></div>
-        <div class="row mb-3 ml-2">
-            <br/><br/>
-            @foreach($permission as $value)
-                <div class="col-md-3 col-sm-12">
-                    <div class="custom-checkbox custom-control">
-                        <input type="checkbox" name="all_permission" class="data-check custom-control-input"
-                               value="{{$value->id}}" id="all_permission{{$value->id}}"/>
-                        <label class="custom-control-label"
-                               for="all_permission{{$value->id}}">{{ $value->name }}</label>
-                    </div>
-                </div>
-            @endforeach
+        <div class="col-sm-12 col-md-12">
+            <strong>Assign Permissions: </strong>
+            <div class='row mb-3 mt-3'>
+                @foreach($permission as $value)
+                    @if($value->guard_name != 'admin')
+                        <div class="col-md-3 col-sm-12 mb-1">
+                            <input type="checkbox" name="all_permission" class="data-check flat-green"
+                                   value="{{$value->id}}"/> {{ $value->name }}
+                        </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
-        <div class="clearfix"></div>
-        <br/><br/>
-        <div class="form-group col-md-12">
+        <div class="col-md-12 mb-3 mt-3">
             <button type="submit" class="btn btn-success"><span class="fa fa-save fa-fw"></span> Save</button>
         </div>
-        <div class="clearfix"></div>
     </div>
 </form>
-
 <script>
 
     $(document).ready(function () {
+
+        $('input[type="checkbox"].flat-green').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+        });
+
         $('#loader').hide();
         $('#create').validate({// <- attach '.validate()' to your form
             // Rules for form validation

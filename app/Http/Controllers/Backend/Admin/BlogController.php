@@ -109,7 +109,7 @@ class BlogController extends Controller
                $file_path = 'assets/images/blog/default.png';
 
                if ($request->hasFile('photo')) {
-                  $extension = $request->file('photo')->getClientOriginalExtension();;
+                  $extension = strtolower($request->file('photo')->getClientOriginalExtension());
                   if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
                      if ($request->file('photo')->isValid()) {
                         $destinationPath = public_path('assets/images/blog'); // upload path
@@ -229,14 +229,14 @@ class BlogController extends Controller
             } else {
 
                if ($request->hasFile('photo')) {
-                  $extension = Input::file('photo')->getClientOriginalExtension();;
+                  $extension = strtolower($request->file('photo')->getClientOriginalExtension());
                   if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
-                     if (Input::file('photo')->isValid()) {
+                     if ($request->file('photo')->isValid()) {
                         $destinationPath = public_path('assets/images/blog'); // upload path
-                        $extension = Input::file('photo')->getClientOriginalExtension(); // getting image extension
+                        $extension = $request->file('photo')->getClientOriginalExtension(); // getting image extension
                         $fileName = time() . '.' . $extension; // renameing image
                         $file_path = 'assets/images/blog/' . $fileName;
-                        Input::file('photo')->move($destinationPath, $fileName); // uploading file to given path
+                        $request->file('photo')->move($destinationPath, $fileName); // uploading file to given path
                         $upload_ok = 1;
 
                      } else {

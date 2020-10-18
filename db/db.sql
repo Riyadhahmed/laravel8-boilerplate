@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 -- Dumping data for table laravel8_boilerplate.admins: ~0 rows (approximately)
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'superadmin', 'superadmin@admin.com', NULL, '$2y$10$NqE8kc.TK6aDdzZurouYleAWOdz7xs654tc6Lt6tvn08RAVerO2tS', 1, NULL, '2020-07-08 00:00:00', '2020-07-12 16:18:53');
+	(1, 'superadmin', 'superadmin@admin.com', NULL, '$2y$10$PqSKV7Ye2PVTzNor1tEhguuPxzY3lGTN9H4JWZqlNwK2GvjYB7OXG', 1, NULL, '2020-07-08 00:00:00', '2020-10-14 14:45:34');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 
 -- Dumping structure for table laravel8_boilerplate.blogs
@@ -156,9 +156,11 @@ CREATE TABLE IF NOT EXISTS `oauth_access_tokens` (
 -- Dumping data for table laravel8_boilerplate.oauth_access_tokens: ~5 rows (approximately)
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+	('027ae400a8e608d36a65b1fcc48c85aec9f532a63339286a94fc5e06b1bc8b42e531232518a8118e', 1, 4, 'adminApiToken', '[]', 0, '2020-10-14 14:34:15', '2020-10-14 14:34:15', '2021-10-14 14:34:15'),
 	('34cfca8b577333694edb5d4a43e45503ca2478f916462fe0c4d3c64a66dfb59f222dc11b06849cf7', 2, 1, 'userApiToken', '[]', 0, '2020-07-18 17:17:50', '2020-07-18 17:17:50', '2021-07-18 17:17:50'),
 	('67cba7b98c79510c5fac62493938fa857b1cf00da731c40c852ec4949f04be06e0dd476a84d94f8f', 1, 4, 'adminApiToken', '[]', 0, '2020-09-27 16:20:50', '2020-09-27 16:20:50', '2021-09-27 16:20:50'),
 	('a419addf4ae7bea31145205699c7e95182f9c9957068f6e32554187ab3f7980bc5374635df10a69f', 1, 4, 'adminApiToken', '[]', 0, '2020-09-28 12:16:49', '2020-09-28 12:16:49', '2021-09-28 12:16:49'),
+	('a63a5ed742a080a9d8cf1379aa60e1ba0b0fbc087ffea1e858144bf92f87931119eedd334ace7ffb', 1, 4, 'adminApiToken', '[]', 0, '2020-10-15 11:20:50', '2020-10-15 11:20:50', '2021-10-15 11:20:50'),
 	('ab09563fd805d57dc698103035caa419b87a8872d5058901a99919a6770865ef4d1eb0030b7a0f7c', 1, 1, 'userApiToken', '[]', 0, '2020-07-18 17:13:13', '2020-07-18 17:13:13', '2021-07-18 17:13:13'),
 	('bb42f06a00a887377a917efd4b8cc381c39b9a18d9d55ea457976b6deaab1b50a18f8545d407ddab', 1, 4, 'adminApiToken', '[]', 0, '2020-09-27 17:21:14', '2020-09-27 17:21:14', '2021-09-27 17:21:14'),
 	('d9f29ed0d6be329356ca4be84dcae7fa56eeb89df4efbf9fcbe1dfdc882d9befe5abdc2dd9373383', 1, 4, 'Admin', '[]', 0, '2020-09-27 17:12:30', '2020-09-27 17:12:30', '2021-09-27 17:12:30'),
@@ -257,9 +259,9 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
--- Dumping data for table laravel8_boilerplate.permissions: ~16 rows (approximately)
+-- Dumping data for table laravel8_boilerplate.permissions: ~20 rows (approximately)
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'role-view', 'admin', '2020-07-08 15:27:14', '2020-07-08 15:27:14'),
@@ -277,7 +279,12 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 	(13, 'blog-view', 'admin', '2020-07-13 19:37:29', '2020-07-13 19:37:29'),
 	(14, 'blog-create', 'admin', '2020-07-13 19:37:41', '2020-07-13 19:37:41'),
 	(15, 'blog-edit', 'admin', '2020-07-13 19:37:49', '2020-07-13 19:37:49'),
-	(16, 'blog-delete', 'admin', '2020-07-13 19:37:59', '2020-07-13 19:37:59');
+	(16, 'blog-delete', 'admin', '2020-07-13 19:37:59', '2020-07-13 19:37:59'),
+	(17, 'operator-create', 'user', '2020-10-14 16:18:41', '2020-10-14 16:18:41'),
+	(18, 'range-create', 'user', '2020-10-15 11:22:11', '2020-10-15 11:22:11'),
+	(19, 'range-view', 'user', '2020-10-15 11:22:18', '2020-10-15 11:22:18'),
+	(20, 'range-edit', 'user', '2020-10-15 11:22:31', '2020-10-15 11:22:31'),
+	(21, 'range-delete', 'user', '2020-10-15 11:22:37', '2020-10-15 11:22:37');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Dumping structure for table laravel8_boilerplate.roles
@@ -288,12 +295,13 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table laravel8_boilerplate.roles: ~0 rows (approximately)
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-	(1, 'superadmin', 'admin', '2020-07-08 15:27:14', '2020-07-08 15:27:14');
+	(1, 'superadmin', 'admin', '2020-07-08 15:27:14', '2020-07-08 15:27:14'),
+	(2, 'Operator', 'user', '2020-10-15 11:25:02', '2020-10-15 11:25:02');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 -- Dumping structure for table laravel8_boilerplate.role_has_permissions
@@ -306,8 +314,13 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table laravel8_boilerplate.role_has_permissions: ~0 rows (approximately)
+-- Dumping data for table laravel8_boilerplate.role_has_permissions: ~4 rows (approximately)
 /*!40000 ALTER TABLE `role_has_permissions` DISABLE KEYS */;
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+	(18, 2),
+	(19, 2),
+	(20, 2),
+	(21, 2);
 /*!40000 ALTER TABLE `role_has_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table laravel8_boilerplate.settings
@@ -315,6 +328,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `slogan` varchar(255) DEFAULT NULL,
+  `eiin` varchar(255) DEFAULT NULL,
+  `pabx` varchar(255) DEFAULT NULL,
   `reg` varchar(255) DEFAULT NULL,
   `stablished` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
@@ -322,8 +337,14 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `address` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
-  `favicon` varchar(255) DEFAULT NULL,
+  `favicon` varchar(255) DEFAULT 'assets/images/logo/favicon.png',
+  `social_facebook` varchar(255) DEFAULT 'https://www.facebook.com/',
+  `social_twitter` varchar(255) DEFAULT 'https://www.twitter.com/',
+  `social_linkedin` varchar(255) DEFAULT 'https://www.linkedin.com/',
+  `social_google` varchar(255) DEFAULT 'https://www.google.com/',
+  `social_youtube` varchar(255) DEFAULT 'https://www.youtube.com/',
   `layout` varchar(255) NOT NULL DEFAULT '1',
+  `maps` text,
   `running_year` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -331,10 +352,10 @@ CREATE TABLE IF NOT EXISTS `settings` (
   UNIQUE KEY `settings_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table laravel8_boilerplate.settings: ~0 rows (approximately)
+-- Dumping data for table laravel8_boilerplate.settings: ~1 rows (approximately)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` (`id`, `name`, `slogan`, `reg`, `stablished`, `email`, `contact`, `address`, `website`, `logo`, `favicon`, `layout`, `running_year`, `created_at`, `updated_at`) VALUES
-	(1, 'Laravel Boilerplate', 'Admin Dashboard', '12345', '2020', 'riyadhahmed777@gmail.com', '01851334237', 'Chittagong,Bangladesh', 'http://www.laravelboilerplate.com', 'assets/images/logo/default.png', NULL, '1', '2019-2020', '2020-09-26 17:59:47', '2020-09-26 17:59:47');
+INSERT INTO `settings` (`id`, `name`, `slogan`, `eiin`, `pabx`, `reg`, `stablished`, `email`, `contact`, `address`, `website`, `logo`, `favicon`, `social_facebook`, `social_twitter`, `social_linkedin`, `social_google`, `social_youtube`, `layout`, `maps`, `running_year`, `created_at`, `updated_at`) VALUES
+	(1, 'Laravel Boilerplate', 'Knowledge is Power', '123', '123', '12345', '2013', 'riyadhahmed777@gmail.com', '+8801531117886', 'Chattogram, Bangladesh', 'http://riyadh.com/', 'assets/images/logo/1598681688.png', 'assets/images/logo/1571036986.png', 'https://www.facebook.com/', 'https://www.twitter.com/', 'https://www.linkedin.com/', 'https://www.google.com/', 'https://www.youtube.com/', '0', NULL, '2019-2020', '2020-10-14 15:29:11', '2020-10-14 15:29:11');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 -- Dumping structure for table laravel8_boilerplate.users
@@ -351,13 +372,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table laravel8_boilerplate.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `file_path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Riyadh Ahmed', 'userone@admin.com', NULL, '$2y$10$NqE8kc.TK6aDdzZurouYleAWOdz7xs654tc6Lt6tvn08RAVerO2tS', 'assets/images/users/1594563348.png', 1, NULL, '2020-07-12 20:15:48', '2020-07-12 20:58:16'),
-	(2, 'Riyadh', 'riyad@gmail.com', NULL, '$2y$10$MSctVmmHprXuc4Eka83K2eqFvFBbsYqB4jmBZymOSBvaJhFMAz5GW', 'assets/images/users/default.png', 1, NULL, '2020-07-18 17:17:50', '2020-07-18 17:17:50');
+	(1, 'Riyadh Ahmed', 'userone@admin.com', NULL, '$2y$10$NqE8kc.TK6aDdzZurouYleAWOdz7xs654tc6Lt6tvn08RAVerO2tS', 'assets/images/users/1594563348.png', 1, NULL, '2020-07-12 20:15:48', '2020-07-12 20:58:16');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

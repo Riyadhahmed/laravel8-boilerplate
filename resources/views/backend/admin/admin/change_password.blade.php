@@ -42,62 +42,47 @@
 
             $('#loader').hide();
 
-            $('#edit').validate({// <- attach '.validate()' to your form
-                // Rules for form validation
-                rules: {
-                    password: {
-                        required: true
-                    },
-                    password: {
-                        required: true
-                    }
-                },
-                // Messages for form validation
-                messages: {
-                    name: {
-                        required: 'Enter name'
-                    }
-                },
+            $('#edit').validate({
                 submitHandler: function (form) {
 
                     var myData = new FormData($("#edit")[0]);
                     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                     myData.append('_token', CSRF_TOKEN);
+                    swal({
+                        title: "Are you sure to submit?",
+                        text: "Submit Form",
+                        type: "warning",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Yes, Submit!"
+                    }, function () {
 
-                    $.ajax({
-                        url: 'change_password',
-                        type: 'POST',
-                        data: myData,
-                        dataType: 'json',
-                        cache: false,
-                        processData: false,
-                        contentType: false,
-                        beforeSend: function () {
-                            $('#loader').show();
-                            $("#submit").prop('disabled', true); // disable button
-                        },
-                        success: function (data) {
-                            if (data.type === 'success') {
-                                notify_view(data.type, data.message);
-                                $('#loader').hide();
-                                $("#submit").prop('disabled', false); // disable button
-                                $("html, body").animate({scrollTop: 0}, "slow");
-                                $('#myModal').modal('hide'); // hide bootstrap modal
-                                $('.has-error').html('');
-
-                            } else if (data.type === 'error') {
-                                $('.has-error').html('');
-                                if (data.errors) {
-                                    $.each(data.errors, function (key, val) {
-                                        $('#error_' + key).html(val);
-                                    });
+                        $.ajax({
+                            url: 'change_password',
+                            type: 'POST',
+                            data: myData,
+                            dataType: 'json',
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                if (data.type === 'success') {
+                                    $('#myModal').modal('hide');
+                                    swal("Done!", "It was succesfully done!", "success");
+                                    reload_table();
+                                } else if (data.type === 'error') {
+                                    if (data.errors) {
+                                        $.each(data.errors, function (key, val) {
+                                            $('#error_' + key).html(val);
+                                        });
+                                    }
+                                    $("#status").html(data.message);
+                                    swal("Error sending!", "Please fix the errors", "error");
                                 }
-                                $("#status").html(data.message);
-                                $('#loader').hide();
-                                $("#submit").prop('disabled', false); // disable button
-
                             }
-                        }
+                        });
                     });
                 }
                 // <- end 'submitHandler' callback
